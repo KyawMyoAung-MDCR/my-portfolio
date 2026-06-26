@@ -45,3 +45,7 @@ export const projectsData: Project[] = [
 export const skillsData: string[] = [
   "TypeScript", "JavaScript", "Java", "Spring Boot", "Next.js", "Tailwind CSS", "SAP ABAP", "SQL"
 ];
+
+export const aboutMeData = {
+  text: "I am a passionate developer with expertise in enterprise systems and modern web technologies. I love solving complex problems and building user-centric applications."
+};
