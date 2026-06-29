@@ -9,6 +9,7 @@ import Hero from '@/components/Hero';
 import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
 import AboutMe from '@/components/AboutMe';
+import ChatBot from '@/components/ChatBot';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'home' | 'projects' | 'about'>('home');
@@ -123,6 +124,7 @@ export default function Home() {
         </div>
 
       </main>
+      <ChatBot />
     </div>
   );
 }
