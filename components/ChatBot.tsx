@@ -27,10 +27,23 @@ export default function ChatBot() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage }),
       });
+
       const data = await res.json();
-      setMessages((prev) => [...prev, { role: 'ai', text: data.reply || "Sorry, I couldn't process that." }]);
-    } catch (err) {
-      setMessages((prev) => [...prev, { role: 'ai', text: "Error connecting to the assistant." }]);
+
+      if (!res.ok) {
+        setMessages((prev) => [
+          ...prev,
+          { role: 'ai', text: data.error ?? 'Sorry, something went wrong. Please try again.' },
+        ]);
+        return;
+      }
+
+      setMessages((prev) => [
+        ...prev,
+        { role: 'ai', text: data.reply ?? "Sorry, I couldn't process that." },
+      ]);
+    } catch {
+      setMessages((prev) => [...prev, { role: 'ai', text: 'Error connecting to the assistant.' }]);
     } finally {
       setIsLoading(false);
     }
@@ -55,7 +68,7 @@ export default function ChatBot() {
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            className="absolute bottom-18 right-0 w-80 sm:w-96 h-[450px] bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className="absolute bottom-16 right-0 w-80 sm:w-96 h-[450px] bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="p-4 bg-gradient-to-r from-indigo-950 to-slate-900 border-b border-slate-800 flex items-center gap-3">
