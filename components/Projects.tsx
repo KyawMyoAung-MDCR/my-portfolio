@@ -17,13 +17,13 @@ export default function Projects() {
 
       {/* Projects Section */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Featured Projects</h2>
+        <h2 className="text-2xl font-bold text-black mb-6">Featured Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projectsData.map((project, idx) => (
-            <div key={idx} className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div key={idx} className="p-6 bg-white rounded-xl border text-gray-900 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
-                <h3 className="text-lg font-bold text-gray-100">{project.title}</h3>
-                <p className="mt-2 text-sm text-gray-100 leading-relaxed">{project.description}</p>
+                <h3 className="text-lg font-bold text-gray-900">{project.title}</h3>
+                <p className="mt-2 text-sm text-gray-900 leading-relaxed">{project.description}</p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {project.techStack.map((tech) => (
                     <span key={tech} className="text-xs font-semibold px-2 py-0.5 bg-blue-50 text-blue-700 rounded">
