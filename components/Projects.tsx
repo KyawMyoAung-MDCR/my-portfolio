@@ -21,7 +21,7 @@ export default function Projects() {
         {/* ----------------- Current Projects ----------------- */}
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-blue-500 pb-2 border-b border-gray-100">
-            Current Projects
+            Current Project
           </h2>
           <div className="space-y-6">
             {projectsData.map((project, idx) => (
