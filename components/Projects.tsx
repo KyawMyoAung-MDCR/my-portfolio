@@ -18,10 +18,10 @@ export default function Projects() {
       {/* Side by Side Layout Container */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         
-        {/* ----------------- Featured Projects ----------------- */}
+        {/* ----------------- Current Projects ----------------- */}
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-blue-500 pb-2 border-b border-gray-100">
-            Featured Projects
+            Current Projects
           </h2>
           <div className="space-y-6">
             {projectsData.map((project, idx) => (
