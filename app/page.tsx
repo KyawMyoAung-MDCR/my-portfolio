@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 
 import { useState } from 'react';
@@ -15,9 +14,9 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<'home' | 'projects' | 'about'>('home');
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white overflow-x-hidden relative flex flex-col justify-between">
       
-      {/* 🔮 Futuristic Background Glowing Orbs (နောက်ခံ လှုပ်ရှားနေသော အလင်းလုံးများ) */}
+      {/* Futuristic Background Glowing Orbs */}
       <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
         <motion.div 
           animate={{
@@ -26,7 +25,7 @@ export default function Home() {
             y: [0, -50, 0],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full bg-indigo-600/10 blur-[120px]" 
+          className="absolute top-[20%] left-[10%] w-[600px] h-[600px] rounded-full bg-indigo-600/10 blur-[120px]" 
         />
         <motion.div 
           animate={{
@@ -35,13 +34,14 @@ export default function Home() {
             y: [0, 40, 0],
           }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-[40%] -right-[10%] w-[500px] h-[500px] rounded-full bg-purple-600/10 blur-[120px]" 
+          className="absolute top-[40%] right-[10%] w-[500px] h-[500px] rounded-full bg-purple-600/10 blur-[120px]" 
         />
       </div>
 
-      <main className="max-w-4xl mx-auto px-6 sm:px-8 py-16">
+      {/* Main Content Wrapper */}
+      <main className="max-w-4xl mx-auto px-6 sm:px-8 py-16 w-full grow">
         
-        {/* 📸 Animated Profile & Header Section */}
+        {/*  Animated Profile & Header Section */}
         <motion.div 
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export default function Home() {
         >
           <div className="relative group cursor-pointer">
             {/* Pulsing Aura Border */}
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur-md opacity-40 group-hover:opacity-70 transition duration-500 animate-pulse" />
+            <div className="absolute inset-0 bg-linear-to-r from-indigo-500 to-purple-500 rounded-full blur-md opacity-40 group-hover:opacity-70 transition duration-500 animate-pulse" />
             
             <div className="relative w-36 h-36 mb-6 rounded-full overflow-hidden border-4 border-slate-800 shadow-2xl bg-slate-900 transition-transform duration-500 group-hover:scale-105">
               <Image 
@@ -63,7 +63,7 @@ export default function Home() {
             </div>
           </div>
           
-          <h1 className="text-4xl font-black tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent sm:text-5xl">
+          <h1 className="text-4xl font-black tracking-tight bg-linear-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent sm:text-5xl">
             {heroData.name}
           </h1>
           <p className="text-sm font-bold mt-3 text-indigo-400 uppercase tracking-widest bg-indigo-950/40 px-4 py-1.5 rounded-full border border-indigo-900/50">
@@ -71,7 +71,7 @@ export default function Home() {
           </p>
         </motion.div>
 
-        {/* 🗂️ Premium Dynamic Slider Tabs */}
+        {/* Premium Dynamic Slider Tabs */}
         <div className="flex justify-center my-12">
           <nav className="inline-flex p-1.5 bg-slate-900/60 backdrop-blur-xl rounded-2xl border border-slate-800/80 shadow-2xl relative" aria-label="Tabs">
             {(['home', 'projects', 'about'] as const).map((tab) => {
@@ -84,11 +84,11 @@ export default function Home() {
                     isActive ? 'text-white font-semibold' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
-                  {/* Active ဖြစ်သည့် Tab နောက်ကွယ်မှ ပြေးလိုက်မည့် Indicator Slider Effect */}
+                  {/* Active Indicator Slider Effect */}
                   {isActive && (
                     <motion.div 
                       layoutId="activeTabIndicator"
-                      className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl -z-10 shadow-lg shadow-indigo-500/20"
+                      className="absolute inset-0 bg-linear-to-r from-indigo-600 to-purple-600 rounded-xl -z-10 shadow-lg shadow-indigo-500/20"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -99,7 +99,7 @@ export default function Home() {
           </nav>
         </div>
 
-        {/* 🎯 Content Display with Intelligent Slide-and-Fade Animations */}
+        {/* Content Display with Intelligent Slide-and-Fade Animations */}
         <div className="mt-8 relative">
           <AnimatePresence mode="wait">
             <motion.div
@@ -124,6 +124,12 @@ export default function Home() {
         </div>
 
       </main>
+
+      {/* footer */}
+      <footer className="w-full max-w-4xl mx-auto px-6 sm:px-8 py-8 text-center text-slate-500 text-xs border-t border-slate-900">
+        <p>© {new Date().getFullYear()} {heroData.name}. All rights reserved.</p>
+      </footer>
+
       <ChatBot />
     </div>
   );

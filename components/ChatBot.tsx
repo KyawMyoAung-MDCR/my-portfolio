@@ -51,17 +51,17 @@ export default function ChatBot() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 font-sans">
-      {/* 🔮 Chat Floating Button */}
+      {/* Chat Floating Button */}
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/30 text-white focus:outline-none text-2xl"
+        className="w-14 h-14 bg-linear-to-r from-indigo-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/30 text-white focus:outline-none text-2xl"
       >
         {isOpen ? '✕' : '💬'}
       </motion.button>
 
-      {/* 📦 Chat Box Window (Animated) */}
+      {/* Chat Box Window (Animated) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -71,7 +71,7 @@ export default function ChatBot() {
             className="absolute bottom-16 right-0 w-80 sm:w-96 h-[450px] bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="p-4 bg-gradient-to-r from-indigo-950 to-slate-900 border-b border-slate-800 flex items-center gap-3">
+            <div className="p-4 bg-linear-to-r from-indigo-950 to-slate-900 border-b border-slate-800 flex items-center gap-3">
               <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
               <div>
                 <h3 className="text-sm font-bold text-white">Kyaw Myo Aung AI</h3>
